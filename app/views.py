@@ -3,8 +3,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponseRedirect
-from .forms import NewUserForm, NewTaskForm
-from app.models import Task
+from .forms import NewUserForm
+
 
 # Auth views
 def register_request(request):
