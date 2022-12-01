@@ -5,14 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <title>home</title>
     </head>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
     <body>
-        {% for entry in my_subs %}
-            <pre>{{ entry.name }}  {{ entry.billing_cycle }}  ${{ entry.price }}  ${{ monthly_total}}  $yearly  {{ entry.start_month }}-{{ entry.start_day }}-{{ entry.start_year }}</pre>
-        {% endfor %}
-        {% comment %} <p>{{ my_subs }}</p> {% endcomment %}
-        <p>${{ monthly }}</p>
-        <p>${{ yearly }}</p>
-        {% comment %} <p>{{ grand }}</p> {% endcomment %}
+     
+
+        <table>
+            <tr>
+              <th>Name</th>
+              <th>Billing Cycle</th>
+              <th>Price</th>
+              <th>Date</th>
+            </tr>
+            {% for entry in my_subs %}
+                <tr>
+                    <td>{{entry.name}}</td>
+                    <td>{{entry.billing_cycle}}</td>
+                    <td>${{entry.price}}</td>
+                    <td>{{ entry.start_month }}-{{ entry.start_day }}-{{ entry.start_year }}</td>
+                </tr>
+            {% endfor %}
+            
+        </table>
+          <p>${{ monthly }}</p>
+          <p>${{ yearly }}</p>
+        
     </body>
 <html>
+
+
+{% comment %} {% for entry in my_subs %}
+    <pre>{{ entry.name }}  {{ entry.billing_cycle }}  ${{ entry.price }}  ${{ monthly_total}}  $yearly  {{ entry.start_month }}-{{ entry.start_day }}-{{ entry.start_year }}</pre>
+{% endfor %} {% endcomment %}
+{% comment %} <p>{{ my_subs }}</p> {% endcomment %}
+{% comment %} <p>${{ monthly }}</p>
+<p>${{ yearly }}</p> {% endcomment %}
+{% comment %} <p>{{ grand }}</p> {% endcomment %}
+
+
+
+
+    
 

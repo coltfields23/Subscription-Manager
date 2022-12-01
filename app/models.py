@@ -16,3 +16,6 @@ class Subscription(models.Model):
     start_month = models.CharField(max_length=10, default="January")
     start_day = models.CharField(max_length=10, default="1")
     start_year = models.CharField(max_length=10, default="2022")
+    
+
+    

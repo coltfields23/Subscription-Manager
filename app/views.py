@@ -39,7 +39,7 @@ def login_request(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect("subscription")
+                return redirect("subscribe")
     form = AuthenticationForm()
     return render(
         request=request, template_name="login.html", context={"login_form": form}
@@ -47,7 +47,7 @@ def login_request(request):
 
 def logout_request(request):
     logout(request)
-    return redirect("CreateTask")
+    return redirect("subscribe")
 
 def subscribe(request):
     form = SubscriptForm()
