@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>home</title>
+    </head>
+    <body>
+        {% comment %} <p>{{ my_subs }}</p>
+        <p>{{ initial }}</p>
+        <p>{{ yearly }}</p>
+        <p>{{ grand }}</p> {% endcomment %}
+
+        <form method="POST" action="" class="mt-6">
+            {% csrf_token %}
+
+            
+
+            <div class="field">
+                <label>Username</label>
+                
+                <div class="control">
+                    
+                    {{form.user}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Name</label>
+                
+                <div class="control">
+                    
+                    {{form.name}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Cycle</label>
+                
+                <div class="control">
+                    
+                    {{form.billing_cycle}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Price</label>
+                
+                <div class="control">
+                    
+                    {{form.price}}
+                </div>
+            </div> 
+
+            <div class="field">
+                <label>Month</label>
+                
+                <div class="control">
+                    
+                    {{form.start_month}}
+                </div>
+            </div> 
+
+            <div class="field">
+                <label>Day</label>
+                
+                <div class="control">
+                    
+                    {{form.start_day}}
+                </div>
+            </div> 
+
+            <div class="field">
+                <label>Year</label>
+                
+                <div class="control">
+                    
+                    {{form.start_year}}
+                </div>
+            </div> 
+
+            
+
+            <input type="submit" value="Finish">
+
+
+            {% for message in messages %}
+                <p> {{message}}</p>
+            {% endfor %}
+            
+        </form>
+    </body>
+<html>

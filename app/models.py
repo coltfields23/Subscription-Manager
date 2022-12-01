@@ -3,10 +3,15 @@ from django.db import models
 
 # Create your models here.
 
+cycle_choices = [
+    ('Monthly','Monthly'), ('Yearly','Yearly')
+]
+
+
 class Subscription(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
-    billing_cycle = models.CharField(max_length=20)
+    billing_cycle = models.CharField(max_length=20, choices=cycle_choices)
     price = models.DecimalField(decimal_places=2, max_digits=4)
     start_month = models.CharField(max_length=10, default="January")
     start_day = models.CharField(max_length=10, default="1")

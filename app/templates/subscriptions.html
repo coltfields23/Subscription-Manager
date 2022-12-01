@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>home</title>
+    </head>
+    <body>
+        {% for entry in my_subs %}
+            <pre>{{ entry.name }}  {{ entry.billing_cycle }}  ${{ entry.price }}  ${{ monthly_total}}  $yearly  {{ entry.start_month }}-{{ entry.start_day }}-{{ entry.start_year }}</pre>
+        {% endfor %}
+        {% comment %} <p>{{ my_subs }}</p> {% endcomment %}
+        <p>${{ monthly }}</p>
+        <p>${{ yearly }}</p>
+        {% comment %} <p>{{ grand }}</p> {% endcomment %}
+    </body>
+<html>
+

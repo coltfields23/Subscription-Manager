@@ -18,7 +18,7 @@ class NewUserForm(UserCreationForm):
         return user
 
 
-class ClockoutForm(ModelForm):
+class SubscriptForm(ModelForm):
     class Meta:
         model = Subscription
         fields = ['user', 'name', 'billing_cycle', 'price', 'start_month',
