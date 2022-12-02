@@ -21,6 +21,9 @@
       tr:nth-child(even) {
         background-color: #dddddd;
       }
+      .foot{
+        text-align:right;
+      }
       </style>
     <body>
      
@@ -30,7 +33,7 @@
               <th>Name</th>
               <th>Billing Cycle</th>
               <th>Price</th>
-              <th>Date</th>
+              <th>Start Date</th>
             </tr>
             {% for entry in my_subs %}
                 <tr>
@@ -40,10 +43,23 @@
                     <td>{{ entry.start_month }}-{{ entry.start_day }}-{{ entry.start_year }}</td>
                 </tr>
             {% endfor %}
+            <tr>
+                <td></td>
+                <th>Monthly Total</th>
+                <th>${{ monthly }}</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <th>Yearly Total</th>
+                <th>${{ yearly }}</th>
+                <td></td>
+            </tr>
+
             
         </table>
-          <p>${{ monthly }}</p>
-          <p>${{ yearly }}</p>
+        
+        
         
     </body>
 <html>
