@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponseRedirect
-from .forms import NewUserForm
+# from .forms import NewUserForm
 from app.forms import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -18,16 +18,27 @@ from decimal import Decimal
 
 # Auth views
 def register_request(request):
-    if request.method == "POST":
-        form = NewUserForm(request.POST)
+    # if request.method == "POST":
+    #     form = NewUserForm(request.POST)
+    #     if form.is_valid():
+    #         user = form.save()
+    #         login(request, user)
+    #         return redirect("subscribe")
+    # form = NewUserForm()
+    # return render(
+    #     request=request, template_name="signup.html", context={"register_form": form}
+    # )
+
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            return redirect("subscribe")
-    form = NewUserForm()
-    return render(
-        request=request, template_name="signup.html", context={"register_form": form}
-    )
+
+            # group = Group.objects.get(name='not_admin')
+            # user.groups.add(group)
+            return redirect('login')
+    return render(request, 'signup.html', {'form':form})
 
 
 def login_request(request):
@@ -62,7 +73,10 @@ def subscribe(request):
 def mysubscripts(request):
     my_subs = Subscription.objects.filter(user=request.user)
     if len(my_subs) == 0:
-        return render(request, "subscriptions.html",)
+        monthly_total = 0
+        yearly_total = 0
+        return render(request, "subscriptions.html", 
+        {"monthly":monthly_total, 'yearly':yearly_total})
     else:
         total_monthly = 0
         for subs in my_subs:

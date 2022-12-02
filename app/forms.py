@@ -4,18 +4,23 @@ from django.contrib.auth.models import User
 from django.forms import ModelForm
 from .models import Subscription
 
-class NewUserForm(UserCreationForm):
-    email = forms.EmailField(required=True)
+# class NewUserForm(UserCreationForm):
+#     email = forms.EmailField(required=True)
 
+#     class Meta:
+#         model = User
+#         fields = ("username", "email", "password1", "password2")
+
+#     def save(self, commit=True):
+#         user = super(NewUserForm, self).save(commit=False)
+#         if commit:
+#             user.save()
+#         return user
+
+class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ("username", "email", "password1", "password2")
-
-    def save(self, commit=True):
-        user = super(NewUserForm, self).save(commit=False)
-        if commit:
-            user.save()
-        return user
+        fields = ['username', 'email', 'password1', 'password2']
 
 
 class SubscriptForm(ModelForm):

@@ -5,7 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <title>home</title>
     </head>
+    <nav>
+      <div>
+        <a href="/"><strong>Welcome {{request.user}}</strong></a>
+    </div>
+      <ul>
+          <li><a href="{% url 'login' %}">Home</a></li>
+          <li><a href="{% url 'subscribe' %}">New Subscription</a></li>
+      </ul>
+    </nav>
     <style>
+
+
       table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -58,7 +69,7 @@
 
             
         </table>
-        <a href="{% url 'subscribe' %}">New Subsciption</a>
+        
         
         
     </body>
