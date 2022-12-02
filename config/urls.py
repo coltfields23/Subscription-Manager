@@ -25,5 +25,6 @@ urlpatterns = [
     path("logout/", views.logout_request, name="logout"),
     path("subscribe/", views.subscribe, name="subscribe"),
     path("subscriptions/", views.mysubscripts, name="subscriptions"),
+    path('edit/<int:id>/', views.edit_subscription, name='edit'),
     path("subscriptions/delete/<int:id>/", views.delete_subscriptions, name = "delete"),
 ]

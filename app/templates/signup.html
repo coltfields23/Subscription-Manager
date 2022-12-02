@@ -20,7 +20,7 @@
                 justify-content: center;
                 align-items: center;
                 min-height: 100vh;
-                background: #23242a;
+                background: #0000;
             }
             
             .box {
@@ -171,7 +171,7 @@
                 position: relative;
                 width: 380px;
                 height: 520px;
-                background: #1c1c1c;
+                background: black;
                 border-radius: 8px;
                 overflow: hidden;
             }
@@ -214,7 +214,7 @@
                 position: absolute;
                 inset: 2px;
                 border-radius: 8px;
-                background: #28292d;
+                background: white;
                 z-index: 10;
                 padding: 50px 40px;
                 display: flex;
@@ -222,7 +222,7 @@
             }
             
             .form2 h2 {
-                color: #fafdfd;
+                color: black;
                 font-weight: 500;
                 text-align: center;
                 letter-spacing: 0.1em;
@@ -241,7 +241,7 @@
                 background: transparent;
                 border: none;
                 outline: none;
-                color: #23242a;
+                color: #23242;
                 font-size: 1em;
                 letter-spacing: 0.05em;
                 z-index: 10;
@@ -252,14 +252,14 @@
                 left: 0;
                 padding: 20px 0px 10px;
                 font-size: 1em;
-                color: #f5f5f5;
+                color: black;
                 pointer-events: none;
                 letter-spacing: 0.05em;
             }
             
             .inputbox1 input:valid~span,
             .inputbox1 input:focus~span {
-                color: #f4f6f6;
+                color: black;
                 transform: translateX(0px) translateY(-34px);
                 font-size: 0.75em;
             }
@@ -287,16 +287,16 @@
                 justify-content: space-between;
             }
             
-            .links2 a {
+            .links a {
                 margin: 10px 0;
                 font-size: 0.75em;
-                color: #8f8f8f;
+                color: black;
                 text-decoration: none;
             }
             
-            .links2 a:hover,
-            .links2 a:nth-child(2) {
-                color: #eaeeef;
+            .links a:hover,
+            .links a:nth-child(2) {
+                color: black;
             }
             
             input[type="submit"] {
@@ -345,15 +345,15 @@
     
                         <i></i>
                     </div>
-                    <div class="inputbox">
+                    <div class="inputbox1">
                         {% comment %} <input type="password2" name="password" required="required"> {% endcomment %}
                        
                         {{form.password2}}
-                        <span> Confirm Password</span>
+                        <span>Confirm Password</span>
                        
                         <i></i>
                     </div>
-                    <div class="links2">
+                    <div class="links">
                         <a href="#"></a>
                         <a href= "{% url 'login' %}">Sign in instead</a>
                     </div>

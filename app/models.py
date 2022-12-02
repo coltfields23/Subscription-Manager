@@ -22,13 +22,13 @@ month_choices = [
 
 
 class Subscription(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=20)
-    billing_cycle = models.CharField(max_length=20, choices=cycle_choices)
-    price = models.DecimalField(decimal_places=2, max_digits=4)
-    start_month = models.CharField(max_length=10, default="Jan", choices=month_choices)
-    start_day = models.CharField(max_length=10, default="1")
-    start_year = models.CharField(max_length=10, default="2022")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    name = models.CharField(max_length=20, blank=True)
+    billing_cycle = models.CharField(max_length=20, choices=cycle_choices, blank=True)
+    price = models.DecimalField(decimal_places=2, max_digits=4, blank=True)
+    start_month = models.CharField(max_length=10, default="Jan", choices=month_choices, blank=True)
+    start_day = models.CharField(max_length=10, default="1", blank=True)
+    start_year = models.CharField(max_length=10, default="2022", blank=True)
     
 
     

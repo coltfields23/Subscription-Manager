@@ -104,6 +104,26 @@ def delete_subscriptions(request, id):
         return HttpResponseRedirect("/subscriptions/")
 
 
+@login_required
+def edit_subscription(request, id):
+    form = SubscriptForm()
+    edit_object = Subscription.objects.get(id=id)
+    current_user = request.user
+    if request.method == "POST":
+        form = SubscriptForm(request.POST)
+        if form.is_valid():
+            billing_cycle = form.cleaned_data['billing_cycle']
+            price = form.cleaned_data['price']
+
+            edit_object.billing_cycle = billing_cycle
+            edit_object.price = price
+            edit_object.save()
+            return redirect('subscriptions') 
+    return render(request, 'edit.html', {'form':form})
+
+
+
+
 
 
 

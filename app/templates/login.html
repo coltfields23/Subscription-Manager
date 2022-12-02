@@ -12,6 +12,312 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: 'Poppins', sans-serif;
+                }
+                
+                body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 100vh;
+                    background: #0000;
+                }
+                
+                .box {
+                    position: relative;
+                    width: 380px;
+                    height: 420px;
+                    background: #1c1c1c;
+                    border-radius: 8px;
+                    overflow: hidden;
+                }
+                
+                .box::before {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 380px;
+                    height: 420px;
+                    background: linear-gradient(0deg, transparent, #ffffff, #ffffff);
+                    transform-origin: bottom right;
+                    animation: animate 6s linear infinite;
+                }
+                
+                .box::after {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 380px;
+                    height: 420px;
+                    background: linear-gradient(0deg, transparent, #f8fafa, #feffff);
+                    transform-origin: bottom right;
+                    animation: animate 6s linear infinite;
+                    animation-delay: -3s;
+                }
+                
+                @keyframes animate {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+                
+                .form {
+                    position: absolute;
+                    inset: 2px;
+                    border-radius: 8px;
+                    background: #28292d;
+                    z-index: 10;
+                    padding: 50px 40px;
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .form h2 {
+                    color: #fafdfd;
+                    font-weight: 500;
+                    text-align: center;
+                    letter-spacing: 0.1em;
+                }
+                
+                .inputbox {
+                    position: relative;
+                    width: 300px;
+                    margin-top: 35px;
+                }
+                
+                .inputbox input {
+                    position: relative;
+                    width: 100%;
+                    padding: 20px 10px 10px;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    color: #23242a;
+                    font-size: 1em;
+                    letter-spacing: 0.05em;
+                    z-index: 10;
+                }
+                
+                .inputbox span {
+                    position: absolute;
+                    left: 0;
+                    padding: 20px 0px 10px;
+                    font-size: 1em;
+                    color: #f5f5f5;
+                    pointer-events: none;
+                    letter-spacing: 0.05em;
+                }
+                
+                .inputbox input:valid~span,
+                .inputbox input:focus~span {
+                    color: #f4f6f6;
+                    transform: translateX(0px) translateY(-34px);
+                    font-size: 0.75em;
+                }
+                
+                .inputbox i {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: #f3f4f4;
+                    border-radius: 4px;
+                    transition: 0.5s;
+                    pointer-events: none;
+                    z-index: 9;
+                }
+                
+                .inputbox input:valid~i,
+                .inputbox input:focus~i {
+                    height: 44px;
+                }
+                
+                .links {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                
+                .links a {
+                    margin: 10px 0;
+                    font-size: 0.75em;
+                    color: #8f8f8f;
+                    text-decoration: none;
+                }
+                
+                .links a:hover,
+                .links a:nth-child(2) {
+                    color: #eaeeef;
+                }
+                
+                input[type="submit"] {
+                    border: none;
+                    outline: none;
+                    background: #fafafa;
+                    padding: 11px 25px;
+                    width: 100px;
+                    margin-top: 10px;
+                    border-radius: 4px;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
+                
+                .box {
+                    position: relative;
+                    width: 380px;
+                    height: 520px;
+                    background: black;
+                    border-radius: 8px;
+                    overflow: hidden;
+                }
+                
+                .box::before {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 380px;
+                    height: 420px;
+                    background: linear-gradient(0deg, transparent, #ffffff, #ffffff);
+                    transform-origin: bottom right;
+                    animation: animate 6s linear infinite;
+                }
+                
+                .box::after {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 380px;
+                    height: 420px;
+                    background: linear-gradient(0deg, transparent, #f8fafa, #feffff);
+                    transform-origin: bottom right;
+                    animation: animate 6s linear infinite;
+                    animation-delay: -3s;
+                }
+                
+                @keyframes animate {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+                
+                .form2 {
+                    position: absolute;
+                    inset: 2px;
+                    border-radius: 8px;
+                    background: white;
+                    z-index: 10;
+                    padding: 50px 40px;
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .form2 h2 {
+                    color: black;
+                    font-weight: 500;
+                    text-align: center;
+                    letter-spacing: 0.1em;
+                }
+                
+                .inputbox1 {
+                    position: relative;
+                    width: 300px;
+                    margin-top: 35px;
+                }
+                
+                .inputbox1 input {
+                    position: relative;
+                    width: 100%;
+                    padding: 20px 10px 10px;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    color: #23242;
+                    font-size: 1em;
+                    letter-spacing: 0.05em;
+                    z-index: 10;
+                }
+                
+                .inputbox1 span {
+                    position: absolute;
+                    left: 0;
+                    padding: 20px 0px 10px;
+                    font-size: 1em;
+                    color: black;
+                    pointer-events: none;
+                    letter-spacing: 0.05em;
+                }
+                
+                .inputbox1 input:valid~span,
+                .inputbox1 input:focus~span {
+                    color: black;
+                    transform: translateX(0px) translateY(-34px);
+                    font-size: 0.75em;
+                }
+                
+                .inputbox1 i {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: #f3f4f4;
+                    border-radius: 4px;
+                    transition: 0.5s;
+                    pointer-events: none;
+                    z-index: 9;
+                }
+                
+                .inputbox1 input:valid~i,
+                .inputbox1 input:focus~i {
+                    height: 44px;
+                }
+                
+                .links2 {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                
+                .links a {
+                    margin: 10px 0;
+                    font-size: 0.75em;
+                    color: black;
+                    text-decoration: none;
+                }
+                
+                .links a:hover,
+                .links a:nth-child(2) {
+                    color: black;
+                }
+                
+                input[type="submit"] {
+                    border: none;
+                    outline: none;
+                    background: #fafafa;
+                    padding: 11px 25px;
+                    width: 100px;
+                    margin-top: 10px;
+                    border-radius: 4px;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
+    
+               
+            </style>
+            {% comment %} <style>
     
                 * {
                     margin: 0;
@@ -264,7 +570,7 @@
                 
                 .inputbox1 input:valid~span,
                 .inputbox1 input:focus~span {
-                    color: #f4f6f6;
+                    color: white;
                     transform: translateX(0px) translateY(-34px);
                     font-size: 0.75em;
                 }
@@ -295,13 +601,13 @@
                 .links2 a {
                     margin: 10px 0;
                     font-size: 0.75em;
-                    color: #8f8f8f;
+                    color: black;
                     text-decoration: none;
                 }
                 
                 .links2 a:hover,
                 .links2 a:nth-child(2) {
-                    color: #eaeeef;
+                    color: black;
                 }
                 
                 input[type="submit"] {
@@ -315,7 +621,7 @@
                     font-weight: 600;
                     cursor: pointer;
                 }
-            </style>
+            </style> {% endcomment %}
         </head>
     <body>
         
@@ -323,9 +629,9 @@
             <form method="POST" action="">
                 {% csrf_token %}
                 <div class="box">
-                    <div class="form">
+                    <div class="form2">
                         <h2>Sign in</h2>
-                        <div class="inputbox">
+                        <div class="inputbox1">
                             <input type="username" name ="username" required="required">
                             <span>Username</span>
                             {% comment %} {{form.username}} {% endcomment %}
@@ -333,7 +639,7 @@
                         </div>
     
                         
-                        <div class="inputbox">
+                        <div class="inputbox1">
                             <input type="password" name="password" required="required">
                             <span>Password</span>
                             
