@@ -61,23 +61,39 @@ def subscribe(request):
 
 def mysubscripts(request):
     my_subs = Subscription.objects.filter(user=request.user)
-    total_monthly = 0
-    for subs in my_subs:
-        total_monthly += subs.price
-    yearly_price = total_monthly * 12
-    var = Subscription.objects.filter(user=request.user)
-    for new_var in var:
-        total = new_var.price * Decimal(yearly_price)
-        grand_total = "{:.2f}".format(total)
-        if new_var.billing_cycle == "Monthly":
-            monthly_total = new_var.price
-            monthly_total = "{:.2f}".format(monthly_total)
-        elif new_var.billing_cycle == "Yearly":
-            monthly_total = new_var.price / 12
-            monthly_total = "{:.2f}".format(monthly_total)
-    return render(request, "subscriptions.html", {'my_subs':my_subs,
-    'monthly':total_monthly, 'yearly':yearly_price, 'grand':grand_total,
-    'monthly_total':monthly_total,})
+    if len(my_subs) == 0:
+        return render(request, "subscriptions.html",)
+    else:
+        total_monthly = 0
+        for subs in my_subs:
+            total_monthly += subs.price
+        yearly_price = total_monthly * 12
+        var = Subscription.objects.filter(user=request.user)
+        for new_var in var:
+            total = new_var.price * Decimal(yearly_price)
+            grand_total = "{:.2f}".format(total)
+            if new_var.billing_cycle == "Monthly":
+                monthly_total = new_var.price
+                monthly_total = "{:.2f}".format(monthly_total)
+            elif new_var.billing_cycle == "Yearly":
+                monthly_total = new_var.price / 12
+                monthly_total = "{:.2f}".format(monthly_total)
+        return render(request, "subscriptions.html", {'my_subs':my_subs,
+        'monthly':total_monthly, 'yearly':yearly_price, 'grand':grand_total,
+        'monthly_total':monthly_total,})
+
+def delete_subscriptions(request, id):
+    delete_object = Subscription.objects.get(id=id)
+    current_user = request.user
+    if current_user == delete_object.user:
+        Subscription.objects.get(id=id).delete()
+        return HttpResponseRedirect("/subscriptions/")
+
+
+
+
+
+
      
     
 

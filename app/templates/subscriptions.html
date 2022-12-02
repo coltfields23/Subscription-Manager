@@ -37,7 +37,7 @@
             </tr>
             {% for entry in my_subs %}
                 <tr>
-                    <td>{{entry.name}}</td>
+                    <td>{{entry.name}} <a href="delete/{{entry.id}}/"><button>delete</button></a></td>
                     <td>{{entry.billing_cycle}}</td>
                     <td>${{entry.price}}</td>
                     <td>{{ entry.start_month }}-{{ entry.start_day }}-{{ entry.start_year }}</td>
@@ -58,7 +58,7 @@
 
             
         </table>
-        
+        <a href="{% url 'subscribe' %}">New Subsciption</a>
         
         
     </body>
