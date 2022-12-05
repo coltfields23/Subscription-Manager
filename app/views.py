@@ -58,8 +58,9 @@ def login_request(request):
 
 def logout_request(request):
     logout(request)
-    return redirect("subscribe")
+    return redirect("login")
 
+@login_required
 def subscribe(request):
     form = SubscriptForm()
     if request.method == 'POST':
@@ -69,7 +70,7 @@ def subscribe(request):
             messages.info(request, 'Subscription Saved!')
     return render(request, 'create.html', {'form':form})
 
-
+@login_required
 def mysubscripts(request):
     my_subs = Subscription.objects.filter(user=request.user)
     if len(my_subs) == 0:

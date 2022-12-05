@@ -24,6 +24,7 @@
                     justify-content: center;
                     align-items: center;
                     min-height: 100vh;
+                    min-width: 100vw;
                     background: #0000;
                 }
                 
@@ -374,10 +375,10 @@
         
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="{% url 'subscribe' %}">Subscribe</a></li>
-            <li><a href="{% url 'subscriptions' %}">Subscriptions</a></li>
+            {% comment %} <li><a href="{% url 'subscribe' %}">Subscribe</a></li>
+            <li><a href="{% url 'subscriptions' %}">Subscriptions</a></li> {% endcomment %}
             <li><a href="{% url 'login' %}" class="active">Login</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% comment %} <li><a href="{% url 'logout' %}">Logout</a></li> {% endcomment %}
             <li><a href="{% url 'register' %}">Signup</a></li>
 
         </ul>

@@ -1,77 +1,262 @@
-<!DOCTYPE html>
+<!DOCTYPE html> {% load static %}
 <html>
-    <head>
+
+<head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>home</title>
-    </head>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-            text-decoration: none;
-            list-style: none;
-            box-sizing: border-box;
-        }
-        body{
-            font-family: montserrat;
-        }
-        nav{
-            background: #0082e6;
-            height: 80px;
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: montserrat;
+    }
+    
+    nav {
+        background: #0082e6;
+        height: 80px;
+        width: 100%;
+    }
+    
+    label.logo {
+        color: white;
+        font-size: 35px;
+        line-height: 80px;
+        padding: 0 100px;
+        font-weight: bold;
+    }
+    
+    nav ul {
+        float: right;
+        margin-right: 20px;
+    }
+    
+    nav ul li {
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+    }
+    
+    nav ul li a {
+        color: white;
+        font-size: 17px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+    }
+    
+    a.active,
+    a:hover {
+        background: pink;
+        transition: .5s;
+    }
+    
+    .desc {
+        text-align: center;
+    }
+    
+    .intruction {
+        text-align: center;
+    }
+    
+    label.logo {
+        color: white;
+        font-size: 35px;
+        line-height: 80px;
+        padding: 0 100px;
+        font-weight: bold;
+    }
+    
+    nav ul {
+        float: right;
+        margin-right: 20px;
+    }
+    
+    nav ul li {
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+    }
+    
+    nav ul li a {
+        color: white;
+        font-size: 17px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+    }
+    
+    a.active,
+    a:hover {
+        background: pink;
+        transition: .5s;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    /* Add a gray background color with some padding */
+    /* Header/Blog Title */
+    
+    .header {
+        padding: 30px;
+        font-size: 40px;
+        text-align: center;
+        background: white;
+    }
+    /* Create two unequal columns that floats next to each other */
+    /* Left column */
+    
+    .leftcolumn {
+        float: left;
+        width: 75%;
+    }
+    /* Right column */
+    
+    .rightcolumn {
+        float: left;
+        width: 25%;
+        padding-left: 20px;
+    }
+    /* Fake image */
+    
+    .fakeimg {
+        background-color: #aaa;
+        width: 100%;
+        padding: 20px;
+    }
+    /* Add a card effect for articles */
+    
+    .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+    }
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Footer */
+    
+    .footer {
+        padding: 20px;
+        text-align: center;
+        background: #ddd;
+        margin-top: 20px;
+    }
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+    
+    @media screen and (max-width: 800px) {
+        .leftcolumn,
+        .rightcolumn {
             width: 100%;
-
+            padding: 0;
         }
-        label.logo{
-            color:white;
-            font-size: 35px;
-            line-height: 80px;
-            padding: 0 100px;
-            font-weight: bold;
+    }
+    
+    .imagess {
+        padding: 0px;
+        margin: 0px;
+        
+    }
+</style>
 
-        }
-        nav ul{
-            float: right;
-            margin-right: 20px;
-        }
+<body>
+    {% comment %} <img class="logo1" src="images/image_6483441.JPG" /> {% endcomment %}
 
-        nav ul li{
-            display: inline-block;
-            line-height: 80px;
-            margin: 0 5px;
+    <nav>
+        <label class="logo">Subscriptify</label>
+        <ul>
+            <li><a href="/" class="active">Home</a></li>
+            {% comment %}
+            <li><a href="{% url 'subscribe' %}">Subscribe</a></li>
+            <li><a href="{% url 'subscriptions' %}">Subscriptions</a></li> {% endcomment %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            {% comment %}
+            <li><a href="{% url 'logout' %}">Logout</a></li> {% endcomment %}
+            <li><a href="{% url 'register' %}">Signup</a></li>
 
-        }
+        </ul>
+    </nav>
 
-        nav ul li a{
-            color: white;
-            font-size: 17px;
-            padding: 7px 13px;
-            border-radius: 3px;
-            text-transform: uppercase;
-            
-        }
-        a.active,a:hover{
-            background: pink;
-            transition: .5s;
 
-        }
-    </style>
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+
     <body>
-        {% comment %} <img class="logo1" src="images/image_6483441.JPG" />
-        <img class="logo1" src="images/3.PNG" /> {% endcomment %}
-        <nav>
-            <label class="logo">Subscriptify</label>
-            <ul>
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="{% url 'subscribe' %}">Subscribe</a></li>
-                <li><a href="{% url 'subscriptions' %}">Subscriptions</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                <li><a href="{% url 'register' %}">Signup</a></li>
- 
-            </ul>
-        </nav>
 
+        {% comment %}
+        <div class="header">
+            <h2>Blog Name</h2>
+        </div> {% endcomment %}
 
+        <div class="row">
+            <div class="leftcolumn">
+                <div class="card">
+                    <h2>Subscription Tracker</h2>
+                    <h5>Established: November 29, 2022</h5>
+                    <img class="imagess" src="static/images/3.png">
+
+                    <div class="fa" style="height:10px;"></div>
+                    <h2> Subscriptify is an easy way to keep track of all your subscriptions. So whenever you start a new one you can add it to a list and keep track of how much it costs and when te payment is due.</h2>
+                    <h2>Start tracking now by signing up or logging in if you already have an account.</h2>
+
+                </div>
+            </div>
+                {% comment %}
+                <div class="card">
+                    <h2>Subscription Tracker</h2>
+                    <h5>....</h5>
+                    <div class="fakeimg" style="height:200px;"></div>
+                    <p></p>
+                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                </div>
+            </div>
+            
+            < {% endcomment %}
+                {% comment %}
+                <div class="footer">
+                    <h2>Footer</h2>
+                </div> {% endcomment %}
+        </div>
+        
     </body>
+
+    </html>
+
+
+
+    <!-- <pre class="desc"><h2>
+        Subscriptify is an easy way to keep track of all your subscriptions. 
+        So whenever you start a new one you can add it to a list and keep track
+        of how much it costs and when payment is due.
+        Start tracking now by signing up or logging in if you already have an account.
+        </h2></pre> -->
+    <!-- <img src="static/images/3.PNG"> {% comment %} <img class="logo1" src="subscriptify/app/static/images/3.PNG" /> {% endcomment %} -->
+
+
+</body>
+
+</html>
+
+</html>
+
+</html>
+
 </html>
