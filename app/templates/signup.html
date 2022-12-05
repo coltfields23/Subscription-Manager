@@ -15,7 +15,7 @@
                 font-family: 'Poppins', sans-serif;
             }
             
-            body {
+            .around-box {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -309,58 +309,122 @@
                 border-radius: 4px;
                 font-weight: 600;
                 cursor: pointer;
+            }*{
+                padding: 0;
+                margin: 0;
+                text-decoration: none;
+                list-style: none;
+                box-sizing: border-box;
             }
+            body{
+                font-family: montserrat;
+            }
+            nav{
+                background: #0082e6;
+                height: 80px;
+                width: 100%;
+    
+            }
+            label.logo{
+                color:white;
+                font-size: 35px;
+                line-height: 80px;
+                padding: 0 100px;
+                font-weight: bold;
+    
+            }
+            nav ul{
+                float: right;
+                margin-right: 20px;
+            }
+    
+            nav ul li{
+                display: inline-block;
+                line-height: 80px;
+                margin: 0 5px;
+    
+            }
+    
+            nav ul li a{
+                color: white;
+                font-size: 17px;
+                padding: 7px 13px;
+                border-radius: 3px;
+                text-transform: uppercase;
+                
+            }
+            a.active,a:hover{
+                background: pink;
+                transition: .5s;
+    
+            }
+
+
 
            
         </style>
     </head>
+    <nav>
+        <label class="logo">Subscriptify</label>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'subscribe' %}">Subscribe</a></li>
+            <li><a href="{% url 'subscriptions' %}">Subscriptions</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'register' %}" class="active">Signup</a></li>
+
+        </ul>
+    </nav>
     <body>
-        <form method="POST" action="">
-            {% csrf_token %}
-            <div class="box2">
-                <div class="form2">
-                    <h2>Sign up</h2>
-                    <div class="inputbox1">
-                        {% comment %} <input type="username" name="password" required="required"> {% endcomment %}
+        <div class="around-box">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="box2">
+                    <div class="form2">
+                        <h2>Sign up</h2>
+                        <div class="inputbox1">
+                            {% comment %} <input type="username" name="password" required="required"> {% endcomment %}
+                            
+                            {{form.username}}
+                            <span>Username</span>
+                            
+                            <i></i>
+                        </div>
+                        <div class="inputbox1">
+                            {% comment %} <input type="email" name="password" required="required"> {% endcomment %}
                         
-                        {{form.username}}
-                        <span>Username</span>
+                            {{form.email}}
+                            <span>Email</span>
+                    
+                            <i></i>
+                        </div>
+                        <div class="inputbox1">
+                            {% comment %} <input type="password1" name="password" required="required"> {% endcomment %}
                         
-                        <i></i>
+                            {{form.password1}}
+                            <span>Password</span>
+                    
+        
+                            <i></i>
+                        </div>
+                        <div class="inputbox1">
+                            {% comment %} <input type="password2" name="password" required="required"> {% endcomment %}
+                        
+                            {{form.password2}}
+                            <span>Confirm Password</span>
+                        
+                            <i></i>
+                        </div>
+                        <div class="links">
+                            <a href="#"></a>
+                            <a href= "{% url 'login' %}">Sign in instead</a>
+                        </div>
+                        <input type="submit" value="Sign up">
                     </div>
-                    <div class="inputbox1">
-                        {% comment %} <input type="email" name="password" required="required"> {% endcomment %}
-                       
-                        {{form.email}}
-                        <span>Email</span>
-                   
-                        <i></i>
-                    </div>
-                    <div class="inputbox1">
-                        {% comment %} <input type="password1" name="password" required="required"> {% endcomment %}
-                       
-                        {{form.password1}}
-                        <span>Password</span>
-                  
-    
-                        <i></i>
-                    </div>
-                    <div class="inputbox1">
-                        {% comment %} <input type="password2" name="password" required="required"> {% endcomment %}
-                       
-                        {{form.password2}}
-                        <span>Confirm Password</span>
-                       
-                        <i></i>
-                    </div>
-                    <div class="links">
-                        <a href="#"></a>
-                        <a href= "{% url 'login' %}">Sign in instead</a>
-                    </div>
-                    <input type="submit" value="Sign up">
                 </div>
-            </div>
-        </form>
+            </form>
         </div>
   
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <title>home</title>
     </head>
-    <nav>
+    {% comment %} <nav>
       <div>
         <a href="/"><strong>Welcome {{request.user}}</strong></a>
     </div>
@@ -13,7 +13,7 @@
           <li><a href="{% url 'login' %}">Home</a></li>
           <li><a href="{% url 'subscribe' %}">New Subscription</a></li>
       </ul>
-    </nav>
+    </nav> {% endcomment %}
     <style>
 
 
@@ -21,12 +21,24 @@
         font-family: arial, sans-serif;
         border-collapse: collapse;
         width: 100%;
+        margin-top: 5%
       }
       
       td, th {
         border: 1px solid #dddddd;
         text-align: left;
         padding: 8px;
+        height:10px;
+      }
+
+      th {
+        height: 70px;
+        font-size: 20px;
+      }
+
+      td {
+        height: 60px;
+        font-size: 19px;
       }
       
       tr:nth-child(even) {
@@ -36,9 +48,82 @@
         text-align:right;
       }
 
+      tr:hover {background-color: pink;}
+
+      *{
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      body{
+        font-family: montserrat;
+      }
+      nav{
+        background: #0082e6;
+        height: 80px;
+        width: 100%;
+
+      }
+      label.logo{
+        color:white;
+        font-size: 35px;
+        line-height: 80px;
+        padding: 0 100px;
+        font-weight: bold;
+
+      }
+      nav ul{
+        float: right;
+        margin-right: 20px;
+      }
+
+      nav ul li{
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+
+      }
+
+      nav ul li a{
+        color: white;
+        font-size: 17px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        
+      }
+      a.active,a:hover{
+        background: pink;
+        transition: .5s;
+        
+
+      }
+
+      .trash-button{
+        font-size:20px;
+      }
+
+      .trash-button:hover{
+        color:blue;
+      }
 
       </style>
     <body>
+
+      <nav>
+        <label class="logo">Subscriptify</label>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'subscribe' %}">Subscribe</a></li>
+            <li><a href="{% url 'subscriptions' %}" class="active">Subscriptions</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'register' %}">Signup</a></li>
+
+        </ul>
+      </nav>
      
 
         <table>
@@ -47,10 +132,13 @@
               <th>Billing Cycle</th>
               <th>Price</th>
               <th>Start Date</th>
+              
             </tr>
             {% for entry in my_subs %}
                 <tr>
-                    <td>{{entry.name}} <a href="{% url "edit" entry.id %}"><button>edit</button></a><a href="delete/{{entry.id}}/"><button>delete</button></a></td>
+                    <td>{{entry.name}} <a href="{% url "edit" entry.id %}">
+                      <button><ion-icon class="trash-button" name="create"></ion-icon></button>
+                    </a><a href="delete/{{entry.id}}/"><button><ion-icon class="trash-button" name="trash"></ion-icon></button></a></td>
                     <td>{{entry.billing_cycle}}</td>
                     <td>${{entry.price}}</td>
                     <td>{{ entry.start_month }}-{{ entry.start_day }}-{{ entry.start_year }}</td>
@@ -71,6 +159,9 @@
 
             
         </table>
+
+        {% comment %} <ion-icon class="social" name="logo-github"></ion-icon> {% endcomment %}
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
         
         
         

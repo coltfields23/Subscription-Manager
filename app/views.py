@@ -50,7 +50,7 @@ def login_request(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect("subscribe")
+                return redirect("subscriptions")
     form = AuthenticationForm()
     return render(
         request=request, template_name="login.html", context={"login_form": form}
@@ -120,6 +120,13 @@ def edit_subscription(request, id):
             edit_object.save()
             return redirect('subscriptions') 
     return render(request, 'edit.html', {'form':form})
+
+
+
+
+def home(request):
+    
+    return render(request, 'home.html')
 
 
 

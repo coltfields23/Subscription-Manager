@@ -5,13 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <title>home</title>
     </head>
+    <nav>
+        <label class="logo">Subscriptify</label>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'subscribe' %}">Subscribe</a></li>
+            <li><a href="{% url 'subscriptions' %}">Subscriptions</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'register' %}">Signup</a></li>
+
+        </ul>
+    </nav>
     <body>
         {% comment %} <p>{{ my_subs }}</p>
         <p>{{ initial }}</p>
         <p>{{ yearly }}</p>
         <p>{{ grand }}</p> {% endcomment %}
         <style>
-            body {
+            .around-box {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -22,7 +34,7 @@
             .box {
                 position: relative;
                 width: 380px;
-                height: 420px;
+                height: 200px;
                 background: #0000;
                 border-radius: 8px;
                 overflow: hidden;
@@ -30,41 +42,93 @@
                 border-style: solid;
                 border-color: black;
             }
-        </style>
+
+            *{
+                padding: 0;
+                margin: 0;
+                text-decoration: none;
+                list-style: none;
+                box-sizing: border-box;
+              }
+              body{
+                font-family: montserrat;
+              }
+              nav{
+                background: #0082e6;
+                height: 80px;
+                width: 100%;
         
-        <div class="box">
-            <form method="POST" action="" class="mt-6">
-                {% csrf_token %}
-
-
-                <div class="field">
-                    <label>Cycle</label>
-                    
-                    <div class="control">
-                        
-                        {{form.billing_cycle}}
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Price</label>
-                    
-                    <div class="control">
-                        
-                        {{form.price}}
-                    </div>
-                </div>
-
-                <input type="submit" value="Finish">
-
-                <a href="{% url 'subscriptions' %}">My Subscriptions</a>
-
-
-                {% for message in messages %}
-                    <p> {{message}}</p>
-                {% endfor %}
+              }
+              label.logo{
+                color:white;
+                font-size: 35px;
+                line-height: 80px;
+                padding: 0 100px;
+                font-weight: bold;
+        
+              }
+              nav ul{
+                float: right;
+                margin-right: 20px;
+              }
+        
+              nav ul li{
+                display: inline-block;
+                line-height: 80px;
+                margin: 0 5px;
+        
+              }
+        
+              nav ul li a{
+                color: white;
+                font-size: 17px;
+                padding: 7px 13px;
+                border-radius: 3px;
+                text-transform: uppercase;
                 
-            </form>
+              }
+              a.active,a:hover{
+                background: pink;
+                transition: .5s;
+                
+        
+              }
+        </style>
+        <div class="around-box">
+            <div class="box">
+                <form method="POST" action="" class="mt-6">
+                    {% csrf_token %}
+
+
+                    <div class="field">
+                        <label>Cycle</label>
+                        
+                        <div class="control">
+                            
+                            {{form.billing_cycle}}
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Price</label>
+                        
+                        <div class="control">
+                            
+                            {{form.price}}
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Finish">
+
+                    <a href="{% url 'subscriptions' %}">My Subscriptions</a>
+
+
+                    {% for message in messages %}
+                        <p> {{message}}</p>
+                    {% endfor %}
+                    
+                </form>
+            </div>
         </div>
     </body>
 <html>
